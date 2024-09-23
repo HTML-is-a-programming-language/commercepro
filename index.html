@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>커머스프로 퍼블팀</title>
+	<link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
 	<header>
@@ -15,7 +16,7 @@
 		<p>2. 초대된 네이트온 단톡방에 간단한 인사말 남긴 후 단톡방에 있는 직원들 친구추가</p>
 		<p>3. 배상훈 과장님 통해서 인사기록카드 작성</p>
 		<p>4. 매월 1일 식권대장 어플을 통해 10만원 들어옴</p>
-		<p>5. 들어온 식권금액은 매월 말일이 지나면 이월되지 않고 사라지므로 그 전에 다 사용하는 것을 추천(보통 회사 1층 편의점에서 마지막으로 다 사용함)</p>
+		<p>5. 들어온 식권금액은 매월 말일이 지나면 이월되지 않고 사라지므로 그 전에 다 사용하는 것을 추천(보통 회사 1층 편의점에서 남은금액 다 사용함)</p>
 		<p>6. 커머스프로 작업 시트, 지라, 어도비 XD 파일 받는 페이지 즐겨찾기 추가</p>
 		<p>7. 어도비 XD 계정 : ncg.developer1@gmail.com / gPdud1203@</p>
 		<p>8. wifi NCG1_5G (다를수있음 NCGXXXX) / ncg_1203</p>
@@ -48,6 +49,7 @@
 		<p>- 내용 추가 후 완료 필드로 이동</p>
 		<p>4. 구글 작업 스프레드시트 링크에 해당 작업의 배경을 없애주고 취소선 처리</p>
 	</section>
+
 	<section>
 		<h2>FTP 정보</h2>
 		<p>이노바</p>
@@ -90,6 +92,86 @@
 		<p>s03-slide-left와 s03-slide-right의 right, left 값은 이미지 박스의 너비 * 이미지 박스 요소의 개수</p>
 		<p>예: 이미지가 9개 노출 되어야하고 이미지의 너비가 100px일 경우 s03-slide-left의 right:-900px </p>
 		<p>* 요소에 마진값이 있을 경우 마진값도 더해줘야함</p>
+	</section>
+
+	<section>
+		<h2>FTP 서버 EditPlus에 추가하는 방법</h2>
+		<p>1. 파일 => FTP => FTP 설정</p>
+		<p>2. 추가버튼 클릭 후 생성된 FTP에 설명, FTP서버, Username, Password 입력</p>
+		<p>3. 고급옵션에서 포트에 포트번호 입력 후 확인</p>
+		<p>4. 마지막으로 확인 누르면 FTP 서버가 추가됨</p>
+	</section>
+
+	<section>
+		<h2>FTP로 모바일 신규 페이지 작업 시 기본 틀</h2>
+		<h3>신규페이지 작업할 때 복사해서 사용하세요 (복사 후에 내부에 주석처리 되어 있는 부분은 삭제하고 작업해주세요)</h3>
+		<textarea name="" id="">
+<!--#include virtual="/m/_include/mobile_header_noJQM.asp"--> <!-- 일반 페이지의 <head></head> 부분 -->
+<!--#include virtual="/m/_include/mobile_bodyS.asp"--> <!-- 템플릿의 서브상단부분에 작업한 내용이 들어가는 부분 -->
+<style>
+	/* 일반적으로 스타일 태그로 작성은 하지 않는게 좋음 */
+	/* 서브상단, 서브하단 템플릿으로 작업한 내용들이 현재 작업하는 페이지 보이지 않게 하기 위해서는 사용해도 괜찮음 */
+	/* 예) .head_top{display:none;} */
+</style>
+
+<div class="sub-header-wrap">
+	<div class="sub-header-box">
+		<div class="header-left-box">
+			<a href="javascript:history.back()" class="previous-link">
+				<img src="/m/images/impactone/btn_arrow_left_black.png" alt="왼쪽화살표">
+			</a>
+		</div>
+		<div class="header-center-box">
+			<h2 class="header-title"><!-- 페이지 타이틀 적는 부분 --></h2>
+		</div>
+		<div class="header-right-box">
+			<a href="/m" class="home-link">
+				<img src="/m/images/impactone/btn_home_logo.png" alt="홈버튼">
+			</a>
+		</div>
+	</div>
+</div>
+<div class="sub-header-height"></div>
+<div id="mobile_wrap">
+	<div class="content-"> <!-- content-파일명으로 class 작명, css 작업할때 꼭 맨 앞에 content-파일명으로 작업 (css 중복이 되지 않게 하기 위함) -->
+
+	</div>
+</div>
+
+<script>
+	// 해당 페이지에 필요한 스크립트 작성
+</script>
+<!--#include virtual="/m/_include/mobile_footer.asp"-->
+<!--#include virtual="/m/_include/mobile_bodyE.asp"--> <!-- 템플릿의 서브하단부분에 작업한 내용이 들어가는 부분 -->
+		</textarea>
+	</section>
+
+	<section>
+		<h2>210.106.106.98 40000 서버 metaceleb에서 작업 중 css파일에서 수정 후 적용이 안되는 문제</h2>
+		<p>CDN방식으로 css 파일을 불러오게 바뀌면서 적용이 안되는 현상이 발생함</p>
+		<p>css 수정 후 masterftp@210.106.106.98:40000:/metaceleb/www/_include/config.asp 해당 경로로 이동</p>
+		<p>수동으로 캐시갱신값 변경 => 이 부분 찾기</p>
+		<p>cfgCashRegDate = "20241303" => 8자리로 된 숫자값에서 1을 더해서 바꾼 후 저장</p>
+		<p>* 20241303일 경우 20241304로 변경 후 저장 </p>
+	</section>
+
+	<section>
+		<h2>토스트 팝업 기본 틀</h2>
+		<p>복사해서 사용하시고 underBoxWrap 안에 원하는 구조로 작업하시면 됩니다.</p>
+		<p>underBoxWrap에 style1로 붙어있는건 비슷한 디자인의 토스트 팝업일 경우 중복으로 사용하기 위해서 분기처리용으로 작명했습니다.</p>
+		<p>다른 디자인으로 사용할 경우 style 번호 바꿔서 작업해주세요</p>
+		<p>팝업 여는 함수 : onclick="popupOpen(this, 'popup_link_regist')"</p>
+		<p>팝업 닫는 함수 : onclick="popupClose()"</p>
+		<p>특정 요소를 클릭했을때 팝업이 열리거나 닫히게 작업하려면 위의 함수 사용하시면 됩니다.</p>
+		<p>popup_link_regist 부분은 underBoxWrap에 data-name 속성에 적혀있는 걸로 사용하시면 됩니다.</p>
+		<p>data-name에 따라 열리는 팝업이 달라지므로 항상 기능에 맞게 작명해주셔야합니다. (data-name이 똑같은게 두개가 있으면 팝업이 두개가 열리겠죠?)</p>
+		<textarea name="" id="">
+<div class="popup-box">
+	<div class="underBoxWrap style1 _boxTarget" data-name="popup_link_regist">
+
+	</div>
+</div>
+		</textarea>
 	</section>
 </body>
 </html>
